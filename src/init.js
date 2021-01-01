@@ -9,7 +9,7 @@ const mostUsedWordsSelector = document.getElementById('mostUsedWords')
 inputSelector.addEventListener('input', e => {
   const value = e.target.value.toLowerCase()
 
-  const wordsLength = value.split(/[^\s*]\s+[^\s*]/).length
+  const wordsLength = value.match(/[\u00ff-\uffff]|\S+/g).length
   const charactersLength = value.length
 
   wordsLengthSelector.innerHTML = wordsLength
