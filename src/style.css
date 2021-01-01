@@ -59,6 +59,7 @@ body, textarea {
   height: 100%;
   border: none;
   resize: none;
+  line-height: 30px;
 }
 
 #stats {
@@ -83,10 +84,10 @@ body, textarea {
   line-height: 32px;
   font-weight: bold;
 }
-#stats .group .count.social {
+#stats .group .count.social b {
   font-size: 21px;
 }
-#stats .group .count span {
+#stats .group .count.social span {
   font-size: 12px;
 }
 
