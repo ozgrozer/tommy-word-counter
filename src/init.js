@@ -15,9 +15,7 @@ const countOccurences = (words, word) => {
   return count
 }
 
-inputSelector.addEventListener('input', e => {
-  const value = e.target.value.toLowerCase()
-
+const counter = value => {
   const wordsLength = value ? value.match(/[\u00ff-\uffff]|\S+/g).length : 0
   const charactersLength = value.length
 
@@ -28,7 +26,7 @@ inputSelector.addEventListener('input', e => {
   twitterLengthSelector.innerHTML = 280 - charactersLength
   googleLengthSelector.innerHTML = 300 - charactersLength
 
-  const words = value.split(' ').filter(w => w !== '')
+  const words = value.toLowerCase().split(' ').filter(w => w !== '')
 
   const allWords = []
   const mostUsedWords = {}
@@ -57,4 +55,14 @@ inputSelector.addEventListener('input', e => {
   }
 
   mostUsedWordsSelector.innerHTML = mostUsedWordsString
+
+  window.localStorage.setItem('input', value)
+}
+
+inputSelector.addEventListener('input', e => {
+  counter(e.target.value)
 })
+
+const readLocalStorage = window.localStorage.getItem('input') || ''
+counter(readLocalStorage)
+inputSelector.value = readLocalStorage
