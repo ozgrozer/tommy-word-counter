@@ -13,4 +13,8 @@ inputSelector.addEventListener('input', e => {
 
   wordsLengthSelector.innerHTML = wordsLength
   charactersLengthSelector.innerHTML = charactersLength
+
+  facebookLengthSelector.innerHTML = 250 - charactersLength
+  twitterLengthSelector.innerHTML = 280 - charactersLength
+  googleLengthSelector.innerHTML = 300 - charactersLength
 })
