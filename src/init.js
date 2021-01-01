@@ -6,6 +6,15 @@ const googleLengthSelector = document.getElementById('googleLength')
 const inputSelector = document.getElementById('input')
 const mostUsedWordsSelector = document.getElementById('mostUsedWords')
 
+const countOccurences = (words, word) => {
+  let count = 0
+  for (const key in words) {
+    const wordItem = words[key]
+    if (wordItem === word) count++
+  }
+  return count
+}
+
 inputSelector.addEventListener('input', e => {
   const value = e.target.value.toLowerCase()
 
@@ -19,17 +28,19 @@ inputSelector.addEventListener('input', e => {
   twitterLengthSelector.innerHTML = 280 - charactersLength
   googleLengthSelector.innerHTML = 300 - charactersLength
 
-  const mostUsedWords = {}
   const words = value.split(' ').filter(w => w !== '')
+
+  const allWords = []
+  const mostUsedWords = {}
   for (const key in words) {
     const word = words[key].replace(/\./g, '')
-    const count = value.split(word).length - 1
-    mostUsedWords[word] = count
+    allWords.push(word)
+    mostUsedWords[word] = 0
   }
 
   const mostUsedWordsArray = []
   for (const word in mostUsedWords) {
-    const count = mostUsedWords[word]
+    const count = countOccurences(allWords, word)
     mostUsedWordsArray.push({ word, count })
   }
 
