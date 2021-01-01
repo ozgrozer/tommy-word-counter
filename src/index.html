@@ -7,7 +7,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    Word Counter
+    <div id="app">
+      <div class="col col-left">
+        <div class="box">
+          <div class="header">
+            <div id="stats">
+              <div class="group">
+                <div class="title">Words</div>
+                <div class="count">0</div>
+              </div>
+
+              <div class="group">
+                <div class="title">Characters</div>
+                <div class="count">0</div>
+              </div>
+
+              <div class="group">
+                <div class="title">Facebook</div>
+                <div class="count social">0<span> / 250</span></div>
+              </div>
+
+              <div class="group">
+                <div class="title">Twitter</div>
+                <div class="count social">0<span> / 280</span></div>
+              </div>
+
+              <div class="group">
+                <div class="title">Google</div>
+                <div class="count social">0<span> / 300</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="content">
+            <textarea id="input" placeholder="Type or paste something"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="col col-right">
+        <div class="box">
+          <div id="mostUsedWords">
+            <div class="word">
+              <span>hello</span>
+              <b>1</b>
+            </div>
+            <div class="word">
+              <span>hello</span>
+              <b>1</b>
+            </div>
+            <div class="word">
+              <span>hello</span>
+              <b>1</b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="./init.js"></script>
   </body>
 </html>

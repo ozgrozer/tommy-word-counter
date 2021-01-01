@@ -1,11 +1,115 @@
-html, body {
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+html, body, #app, .col {
   height: 100%;
 }
 
 body {
   margin: 0;
-  display: flex;
-  font-size: 24px;
-  align-items: center;
-  justify-content: center;
+  background-color: #f2f4f5;
+}
+
+body, textarea {
+  font-size: 18px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+#app {
+  padding: 30px;
+}
+#app:after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+.col-left {
+  width: 70%;
+  float: left;
+}
+.col-right {
+  float: left;
+  margin-left: 30px;
+  width: calc(30% - 30px);
+}
+
+.box {
+  height: 100%;
+  padding: 30px;
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #e7e8ea;
+}
+.box .header {
+  height: 80px;
+  border-bottom: 1px solid #e7e8ea;
+}
+.box .content {
+  padding-top: 30px;
+  height: calc(100% - 80px);
+}
+
+#input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  resize: none;
+}
+
+#stats {
+  height: 100%;
+  overflow: hidden;
+}
+#stats .group {
+  float: left;
+  height: 100%;
+  margin-left: 60px;
+}
+#stats .group:first-child {
+  margin-left: 0;
+}
+#stats .group .title {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+#stats .group .count {
+  margin-top: 4px;
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: bold;
+}
+#stats .group .count.social {
+  font-size: 21px;
+}
+#stats .group .count span {
+  font-size: 12px;
+}
+
+#mostUsedWords .word:after {
+  content: '';
+  clear: both;
+  display: table;
+}
+#mostUsedWords .word {
+  width: 100%;
+  height: 30px;
+  padding: 0 10px;
+  line-height: 30px;
+  border-radius: 4px;
+}
+#mostUsedWords .word:nth-child(odd) {
+  background-color: #f7f8f9;
+}
+#mostUsedWords .word span {
+  float: left;
+  font-size: 14px;
+}
+#mostUsedWords .word b {
+  float: right;
+  font-size: 16px;
 }
