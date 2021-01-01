@@ -22,7 +22,7 @@ inputSelector.addEventListener('input', e => {
   const mostUsedWords = {}
   const words = value.split(' ').filter(w => w !== '')
   for (const key in words) {
-    const word = words[key]
+    const word = words[key].replace(/\./g, '')
     const count = value.split(word).length - 1
     mostUsedWords[word] = count
   }
