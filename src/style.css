@@ -91,6 +91,10 @@ body, textarea {
   font-size: 12px;
 }
 
+#mostUsedWords {
+  height: 100%;
+  overflow-y: auto;
+}
 #mostUsedWords .word:after {
   content: '';
   clear: both;

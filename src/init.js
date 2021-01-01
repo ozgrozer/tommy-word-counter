@@ -4,9 +4,10 @@ const facebookLengthSelector = document.getElementById('facebookLength')
 const twitterLengthSelector = document.getElementById('twitterLength')
 const googleLengthSelector = document.getElementById('googleLength')
 const inputSelector = document.getElementById('input')
+const mostUsedWordsSelector = document.getElementById('mostUsedWords')
 
 inputSelector.addEventListener('input', e => {
-  const value = e.target.value
+  const value = e.target.value.toLowerCase()
 
   const wordsLength = value.split(/[^\s*]\s+[^\s*]/).length
   const charactersLength = value.length
@@ -17,4 +18,20 @@ inputSelector.addEventListener('input', e => {
   facebookLengthSelector.innerHTML = 250 - charactersLength
   twitterLengthSelector.innerHTML = 280 - charactersLength
   googleLengthSelector.innerHTML = 300 - charactersLength
+
+  const mostUsedWords = {}
+  const words = value.split(' ').filter(w => w !== '')
+  for (const key in words) {
+    const word = words[key]
+    const count = value.split(word).length - 1
+    mostUsedWords[word] = count
+  }
+
+  let mostUsedWordsString = ''
+  for (const word in mostUsedWords) {
+    const count = mostUsedWords[word]
+    mostUsedWordsString += `<div class="word"><span>${word}</span><b>${count}</b></div>`
+  }
+
+  mostUsedWordsSelector.innerHTML = mostUsedWordsString
 })
