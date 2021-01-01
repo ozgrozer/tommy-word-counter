@@ -9,7 +9,7 @@ const mostUsedWordsSelector = document.getElementById('mostUsedWords')
 inputSelector.addEventListener('input', e => {
   const value = e.target.value.toLowerCase()
 
-  const wordsLength = value.match(/[\u00ff-\uffff]|\S+/g).length
+  const wordsLength = value ? value.match(/[\u00ff-\uffff]|\S+/g).length : 0
   const charactersLength = value.length
 
   wordsLengthSelector.innerHTML = wordsLength
@@ -27,9 +27,21 @@ inputSelector.addEventListener('input', e => {
     mostUsedWords[word] = count
   }
 
-  let mostUsedWordsString = ''
+  const mostUsedWordsArray = []
   for (const word in mostUsedWords) {
     const count = mostUsedWords[word]
+    mostUsedWordsArray.push({ word, count })
+  }
+
+  mostUsedWordsArray.sort((a, b) => {
+    return b.count - a.count
+  })
+
+  let mostUsedWordsString = ''
+  for (const key in mostUsedWordsArray) {
+    const wordItem = mostUsedWordsArray[key]
+    const word = wordItem.word
+    const count = wordItem.count
     mostUsedWordsString += `<div class="word"><span>${word}</span><b>${count}</b></div>`
   }
 
