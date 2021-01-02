@@ -1,5 +1,5 @@
 {
   "width": 1060,
   "height": 560,
-  "main": "./src/index.html"
+  "main": "./docs/index.html"
 }
